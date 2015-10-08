@@ -1,7 +1,7 @@
 #! /usr/bin/python
 
 import requests
-import pymongo
+#import pymongo
 import json
 import os
 
@@ -12,10 +12,6 @@ import os
 #http://api.angel.co/1/users/155?
 
 TOKEN='e0a8a70151e32cb2741c89218ea744526ad043af0afd9bf6'
-#r = requests.get('https://api.angel.co/1tags/health-care/startups?access_token=e0a8a70151e32cb2741c89218ea744526ad043af0afd9bf6')
-r = requests.get('https://api.angel.co/1/search?query=health-care&type=Startup&page=2&access_token=%s' % TOKEN).json()
-#https://api.angel.co/1/tags/269/startups?access_token=e0a8a70151e32cb2741c89218ea744526ad043af0afd9bf6
-#print(r)
 
 """
 Redirect URI http://angelrob.herokuapp.com/callback
