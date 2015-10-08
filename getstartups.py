@@ -34,6 +34,7 @@ for tag in health_tags[0:1]:
             r = requests.get('https://api.angel.co/1/tags/%s/startups?&page=%s&access_token=%s' % (tag["id"], page, TOKEN)).json()
             f = open("tag-" + str(tag["id"]) + "/" + str(page), "w")
             f.write(json.dumps(r))
+            f.write("\n")
             f.close()
         else:
            print("File exists, skipping!")
