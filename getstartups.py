@@ -3,6 +3,7 @@
 import requests
 import pymongo
 import json
+import os
 
 #  /tags/:id/startups
 
@@ -29,5 +30,16 @@ for tag in health_tags[0:1]:
     r = requests.get('https://api.angel.co/1/tags/%s/startups?&access_token=%s' % (tag["id"], TOKEN)).json()
     print(json.dumps(r))
     last_page = r["last_page"]
-    for page in range(2, last_page):
+    if not os.path.isdir("tag-" + str(tag["id"])):
+        os.mkdir("tag-" + str(tag["id"]))
+    for page in range(1, last_page):
         print(page)
+        if not os.path.isfile("tag-" + str(tag["id"]) + "/" + str(page)):
+            r = requests.get('https://api.angel.co/1/tags/%s/startups?&page=%s&access_token=%s' % (tag["id"], page, TOKEN)).json()
+            f = open("tag-" + str(tag["id"]) + "/" + str(page), "w")
+            f.write(json.dumps(r))
+            f.close()
+        else:
+           print("File exists, skipping!")
+
+
