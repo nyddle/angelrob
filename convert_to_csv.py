@@ -11,7 +11,7 @@ import json
 
 fields = ["name", "high_concept", "product_desc", "company_url" ]
 for line in sys.stdin.readlines():
-    print(line)
+    #print(line)
     startups = json.loads(line)
     #print(line)
     try:
