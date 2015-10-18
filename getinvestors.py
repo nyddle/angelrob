@@ -24,7 +24,7 @@ health_tags =  [{"id":13,"pic":"/images/icons/market.png","url":"https://angel.c
 #https://api.angel.co/1/tags/1/users?iinclude_details=investor&investors=by_activity&page=2&access_token=e0a8a70151e32cb2741c89218ea744526ad043af0afd9bf6
 
 
-for tag in range(10000):
+for tag in range(2,10000):
     print(tag)
     r = requests.get('https://api.angel.co/1/tags/%s/users?&access_token=%s' % (str(tag), TOKEN)).json()
     #print(r["success"])
